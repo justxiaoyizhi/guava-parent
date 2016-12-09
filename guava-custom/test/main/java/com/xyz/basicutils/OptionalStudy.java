@@ -1,19 +1,19 @@
 package main.java.com.xyz.basicutils;
 
 
+import com.google.common.base.Optional;
 import junit.framework.Assert;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 /**
  * Created by Xiao on 2016/12/8.
  */
 @Slf4j
-public class MapNull {
+public class OptionalStudy {
 
     @Test
     public void mapValueNull() {
@@ -28,8 +28,8 @@ public class MapNull {
     }
 
     @Test
-    public void testOptional(){
-        String str = null;
-        Optional.of(str);
+    public void testOptional() {
+        String name = "123";
+        Optional.fromNullable(name).orNull();
     }
 }
