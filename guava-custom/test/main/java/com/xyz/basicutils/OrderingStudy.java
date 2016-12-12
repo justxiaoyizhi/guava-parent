@@ -59,9 +59,13 @@ public class OrderingStudy {
     public void testNaturalOrdering() {
         String s[] = {"aad","adb","dna","aed","vcd"};
         Integer a[] = {1,42,34,45,126};
-        for (String s1 : Ordering.natural().sortedCopy(Arrays.asList(s))) {
+        for (String s1 : Ordering.natural().immutableSortedCopy(Arrays.asList(s))) {
             System.out.println(s1);
         }
+        for (String s1 : Ordering.natural().greatestOf(Arrays.asList(s), 3)) {
+            System.out.println(s1);
+        }
+        ;
         for (Integer integer : Ordering.natural().sortedCopy(Arrays.asList(a))) {
             System.out.println(integer);
         }
