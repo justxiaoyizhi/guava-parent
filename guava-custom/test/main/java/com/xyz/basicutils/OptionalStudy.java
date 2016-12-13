@@ -30,6 +30,6 @@ public class OptionalStudy {
     @Test
     public void testOptional() {
         String name = "123";
-        Optional.fromNullable(name).orNull();
+        Optional.fromNullable(name).or("hello");
     }
 }

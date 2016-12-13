@@ -22,13 +22,14 @@ public class OptionalTestCopy {
 class NormalPerson {
     private String name;
     public static NormalPerson find(String name) {
-        if(name.equals("zhangsan")) {
+        String s = new String("sss".getBytes());
+        if("zhangsan".equals(name)) {
             return new NormalPerson("zhangsan");
         }
         return null;
     }
 
     public void doSomething() {
-        System.out.println("做了一些事");
+        System.out.println(name+"做了一些事");
     }
 }

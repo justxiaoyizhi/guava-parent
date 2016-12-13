@@ -12,7 +12,7 @@ public class OptionalTest {
     public static void main(String[] args) {
         // 使用场景
         Optional<Person> p = Person.find("zhangsan");
-        p.or(new Person("mananger")).doSomething();
+        //p.or(new Person("mananger")).doSomething();
         if(p.isPresent()) {
             p.get().doSomething();
         }
@@ -24,13 +24,13 @@ public class OptionalTest {
 class Person {
     private String name;
     public static Optional<Person> find(String name) {
-        if(name.equals("zhangsan")) {
+        if("zhangsan".equals(name)) {
             return Optional.of(new Person("zhangsan"));
         }
         return Optional.absent();
     }
 
     public void doSomething() {
-        System.out.println("做了一些事");
+        System.out.println(name+"做了一些事");
     }
 }
