@@ -16,9 +16,6 @@
 
 package com.google.common.base;
 
-import static com.google.common.base.Preconditions.checkState;
-import static com.google.common.truth.Truth.assertThat;
-
 import com.google.common.annotations.GwtCompatible;
 import com.google.common.annotations.GwtIncompatible;
 import com.google.common.collect.ImmutableList;
@@ -26,13 +23,17 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import com.google.common.testing.ArbitraryInstances;
 import com.google.common.testing.NullPointerTester;
+import junit.framework.AssertionFailedError;
+import junit.framework.TestCase;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import junit.framework.AssertionFailedError;
-import junit.framework.TestCase;
+
+import static com.google.common.base.Preconditions.checkState;
+import static com.google.common.truth.Truth.assertThat;
 
 /**
  * Unit test for {@link Preconditions}.
