@@ -11,9 +11,7 @@ public class OptionalTestCopy {
     public static void main(String[] args) {
         // 使用场景
         NormalPerson p = NormalPerson.find("zhangsan");
-        if(p != null) {
-            p.doSomething();
-        }
+        p.doSomething();
     }
 }
 
@@ -22,7 +20,6 @@ public class OptionalTestCopy {
 class NormalPerson {
     private String name;
     public static NormalPerson find(String name) {
-        String s = new String("sss".getBytes());
         if("zhangsan".equals(name)) {
             return new NormalPerson("zhangsan");
         }
