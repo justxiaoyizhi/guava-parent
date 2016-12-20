@@ -12,8 +12,8 @@ public class MultiCollectionStudy {
     @Test
     public void testMultiCollection() {
         Multiset set = HashMultiset.create();
-        set.add(2);
         set.add("adjl");
+        set.add(2);
         set.add(2);
         set.add("adjl");
         System.out.println(set.count(2));
