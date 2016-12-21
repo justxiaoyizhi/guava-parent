@@ -1,4 +1,4 @@
-package main.java.com.xyz.basicutils;
+package main.java.com.xyz.string;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;

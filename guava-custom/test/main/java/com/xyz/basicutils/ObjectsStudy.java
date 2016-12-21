@@ -3,6 +3,7 @@ package main.java.com.xyz.basicutils;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import org.junit.Test;
+import static junit.framework.Assert.*;
 
 
 /**
@@ -17,5 +18,6 @@ public class ObjectsStudy {
         System.out.println(MoreObjects.toStringHelper(this).addValue(1).toString());
         String str = MoreObjects.toStringHelper(NormalPerson.class).add("name", "zhangsan").addValue(true).toString();
         System.out.println(str);
+        assertEquals("aa","bb");
     }
 }

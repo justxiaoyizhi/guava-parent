@@ -21,9 +21,9 @@ public class PreconditionsStudy {
         } catch (Exception e) {
             log.debug("cuole",e);
         }
-        checkElementIndex(0,new String[]{"1","2"}.length);
-        checkPositionIndex(0,new String[]{"1","2"}.length);
+        checkElementIndex(1,new String[]{"1","2"}.length);
+        checkPositionIndex(2,new String[]{"1","2"}.length);
         checkState(true);
-        checkPositionIndexes(3,2,3);
+        //checkPositionIndexes(3,2,3);
     }
 }
