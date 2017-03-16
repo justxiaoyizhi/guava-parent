@@ -17,6 +17,7 @@ public class OptionalStudy {
 
     @Test
     public void mapValueNull() {
+        Optional.absent();
         Map<String,Object> map = new HashMap<>();
         map.put("name","null");
 

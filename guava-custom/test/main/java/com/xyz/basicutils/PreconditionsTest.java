@@ -19,7 +19,7 @@ public class PreconditionsTest {
     }
 }
 
-/*class Foo {
+class Foo {
     private final String s;
 
     public Foo(String s) {
@@ -29,4 +29,4 @@ public class PreconditionsTest {
     public int getStringLength() {
         return s.length();
     }
-}*/
+}

@@ -1,9 +1,11 @@
 package main.java.com.xyz.string;
 
+import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
+import main.java.com.xyz.util.CodeTimer;
 import org.junit.Test;
 
 import java.util.HashSet;
@@ -41,6 +43,14 @@ public class SpliterStudy {
             System.out.println(entry.getKey()+"--"+entry.getValue());
         }
 
+        Iterable<String> ad = Splitter.on(",")
+                .trimResults(CharMatcher.anyOf("ad"))
+                .omitEmptyStrings()
+                .split("sa,jd,fl,kj,lk,a");
+        for (String s : ad) {
+            System.out.print("----"+s);
+        }
+
         Iterable<String> str = Splitter.fixedLength(3).limit(3).split("a,b,c,d,e,f,g");
         for (String s : str) {
             System.out.println(s);
@@ -52,7 +62,10 @@ public class SpliterStudy {
 
     @Test
     public void testSpliterThree() {
+        long start = CodeTimer.start();
         String join = Joiner.on("&").withKeyValueSeparator("=").join(ImmutableMap.of("id", "3", "name", "zhangsan"));
         System.out.println(join);
+        CodeTimer.store("aaa",start);
+        CodeTimer.printAll();
     }
 }

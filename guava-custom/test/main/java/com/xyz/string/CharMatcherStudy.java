@@ -19,8 +19,14 @@ public class CharMatcherStudy {
 
     @Test
     public void testCharMatcherTwo() {
-        String s = CharMatcher.ascii().removeFrom("你");
+        String s = CharMatcher.ascii().removeFrom("12asfd45awe2你021@");
         System.out.println(s);
+
+        String s11 = CharMatcher.digit().retainFrom("uiwei2349478953dfasf a");
+        System.out.println(s11);
+
+        String s12 = CharMatcher.breakingWhitespace().removeFrom("a&nbsp; da");
+        System.out.println(s12);
 
         String s1 = CharMatcher.breakingWhitespace().removeFrom("   &nbsp;  aaa   b  bb");
         System.out.println(s1);
@@ -60,7 +66,7 @@ public class CharMatcherStudy {
         int i = CharMatcher.anyOf("a").countIn("adadsffasdbjkl");
         System.out.println(i);
 
-        String s = CharMatcher.anyOf("a").collapseFrom("aadjak", 'b');
+        String s = CharMatcher.any().collapseFrom("ccaadjak", 'a');
         System.out.println(s);
 
         int i1 = CharMatcher.anyOf("a").indexIn("addafsda",2);
@@ -69,11 +75,9 @@ public class CharMatcherStudy {
         int i2 = CharMatcher.anyOf("a").lastIndexIn("adsafsda");
         System.out.println(i2);
 
-        System.out.println(CharMatcher.anyOf("ad").matches('b'));
+        System.out.println(CharMatcher.anyOf("ad").matches('a'));
 
         System.out.println(CharMatcher.anyOf("ad").matchesAnyOf("af"));
-
-        CharMatcher.anyOf("ad");
     }
 
 }

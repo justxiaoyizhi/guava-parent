@@ -1,16 +1,17 @@
 package main.java.com.xyz.string;
 
-import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import main.java.com.xyz.util.CodeTimer;
 import org.junit.Test;
 import org.springframework.util.StringUtils;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -40,21 +41,55 @@ public class JoinerStudy {
 
     @Test
     public void testJoinTwo() {
-        List attrList = Lists.newArrayList("a","b","","d");
-        StringBuffer attrs = new StringBuffer();
-        for(int i=0;i<attrList.size();i++){
-            if(StringUtils.hasText(attrList.get(i).toString())){
-                if(i == attrList.size()-1){
-                    attrs.append(attrList.get(i).toString());
-                }else{
-                    attrs.append(attrList.get(i).toString() + ",");
+        int j = 0;
+        while(j<10) {
+            j++;
+            List attrList = Lists.newArrayList("a", "b", null, "d");
+            long start = CodeTimer.start();
+            StringBuffer attrs = new StringBuffer();
+            for (int i = 0; i < attrList.size(); i++) {
+                if (attrList.get(i) == null) {
+                    if (i == attrList.size() - 1) {
+                        attrs.append(attrList.get(i).toString());
+                    } else {
+                        attrs.append(attrList.get(i).toString());
+                        attrs.append(",");
+                    }
                 }
             }
+            System.out.println(attrs.toString());
+            CodeTimer.store("first", start);
+            CodeTimer.printAll();
         }
-        System.out.println(attrs.toString());
-        String join = Joiner.on(",").skipNulls().join(attrList);
-        String s = CharMatcher.whitespace().removeFrom(join);
-        System.out.println(s);
+    }
+
+    @Test
+    public void testJoinThree() {
+        int i = 0;
+        while(i<10) {
+            i++;
+            List attrList = Lists.newArrayList("a","b","","d");
+            long start1 = CodeTimer.start();
+            StringBuffer attrs = new StringBuffer();
+            Iterator iterator = attrList.iterator();
+            while(iterator.hasNext()) {
+                Object next = iterator.next();
+                if(StringUtils.hasText(next.toString())) {
+                    attrs.append(next.toString());
+                }
+                break;
+            }
+            while(iterator.hasNext()) {
+                Object next = iterator.next();
+                if(StringUtils.hasText(next.toString())) {
+                    attrs.append(",");
+                    attrs.append(next.toString());
+                }
+            }
+            System.out.println(attrs.toString());
+            CodeTimer.store("second",start1);
+            CodeTimer.printAll();
+        }
 
     }
 }

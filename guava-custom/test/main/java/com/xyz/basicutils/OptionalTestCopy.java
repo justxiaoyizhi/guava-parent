@@ -1,5 +1,6 @@
 package main.java.com.xyz.basicutils;
 
+import com.google.common.base.Optional;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,6 +13,7 @@ public class OptionalTestCopy {
         // 使用场景
         NormalPerson p = NormalPerson.find("zhangsan");
         p.doSomething();
+        Optional.fromNullable(p).or(new NormalPerson("manager")).doSomething();
     }
 }
 
