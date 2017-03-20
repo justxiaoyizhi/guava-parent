@@ -72,23 +72,29 @@ public class CacheLoadingCacheStudy {
         Person person;
         CacheLoadingCacheStudy s = new CacheLoadingCacheStudy();
 
+        System.out.println("==============getLoad:111==============");
         person = s.getCacheKeyloadingCache("111");
         System.out.println(person);
 
+        System.out.println("==============getPresent:112==============");
         person = s.getIfPresentloadingCache("112");
         System.out.println(person);
 
+        System.out.println("==============getLoad:007==============");
         person = s.getCacheKeyloadingCache("007");
         System.out.println(person);
 
+        System.out.println("==============getLoad:007==============");
         person = s.getCacheKeyloadingCache("007");
         System.out.println(person);
 
+        System.out.println("==============putGetPresent:001==============");
         s.putloadingCache("001",new Person("001","lisi"));
         person = s.getIfPresentloadingCache("001");
         System.out.println(person);
 
-        person = s.getCacheKeyloadingCache("111");
+        System.out.println("==============putLoad:112==============");
+        person = s.getCacheKeyloadingCache("112");
         System.out.println(person);
     }
 
